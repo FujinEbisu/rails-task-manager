@@ -1,0 +1,14 @@
+<div class="contai">
+<h1 class="title">All the Tasks that are not complete</h1>
+<ul class="task_table">
+  <% @tasks.each do |task| %>
+    <li class="task_row">
+      <%= link_to task.title, task_path(task) %>
+      <%= link_to "Delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <input type="checkbox"/>
+    </li>
+  <% end %>
+</ul>
+
+<h5><%= link_to "Add new task", new_task_path %> </h5>
+</div>
